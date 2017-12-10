@@ -88,13 +88,7 @@ public final class SkiierSparkApp {
         connectionProperties.put("password", "rahul2016");
         connectionProperties.put("driver", "org.postgresql.Driver");
         
-        countsByLiftNumberAndDayNumber.coalesce(1).write().jdbc(url, "countsByLiftNumberAndDayNumber", connectionProperties);
-        maxCountByDay.coalesce(1).write().jdbc(url, "maxCountByDay", connectionProperties);
         mostPopularLiftsByDay.coalesce(1).write().jdbc(url, "mostPopularLiftsByDay", connectionProperties);
-        countsBySkierIdAndDayNumberAndLiftNumber.coalesce(1).write().jdbc(url, "countsBySkierIdAndDayNumberAndLiftNumber", connectionProperties);
-        totalHeightBySkierIdAndDayNumberAndLiftNumber.coalesce(1).write().jdbc(url, "totalHeightBySkierIdAndDayNumberAndLiftNumber", connectionProperties);
-        totalHeightBySkierIdAndDayNumber.coalesce(1).write().jdbc(url, "totalHeightBySkierIdAndDayNumber", connectionProperties);
-        maxHeightByDay.coalesce(1).write().jdbc(url, "maxHeightByDay", connectionProperties);
         mostProlificSkiersByDay.coalesce(1).write().jdbc(url, "mostProlificSkiersByDay", connectionProperties);
         
         spark.stop();
